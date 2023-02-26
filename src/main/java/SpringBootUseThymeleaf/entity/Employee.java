@@ -1,6 +1,8 @@
 package SpringBootUseThymeleaf.entity;
 
-import jakarta.persistence.*;
+
+
+import javax.persistence.*;
 
 @Entity
 @Table(name="employee")
