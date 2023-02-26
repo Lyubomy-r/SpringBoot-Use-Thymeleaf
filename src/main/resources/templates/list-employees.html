@@ -20,12 +20,13 @@
 
 	<h3>Employee Directory</h3>
 	<hr>
-
+	<div sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')">
 	<!-- Add a button -->
 	<a th:href="@{/employees/showAddPage}"
 	   class="btn btn-primary btn-sm mb-3">
 		Add Employee
 	</a>
+	</div>
 
 	<table class="table table-bordered table-striped">
 		<thead class="thead-dark">
