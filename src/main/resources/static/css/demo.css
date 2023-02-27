@@ -2,3 +2,7 @@
 	font-style: italic;
 	color: green;
 }
+.error-message {
+	font-style: italic;
+	color: #b12222;
+}

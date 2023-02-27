@@ -13,14 +13,13 @@ public class Employee {
 	@Column(name="id")
 	private int id;
 	@Column(name="first_name")
-	//@NotEmpty(message ="is required")
-	@NotEmpty
-	//@Pattern(regexp="^[a-zA-Z]{5}",message="only chars")
+	@NotEmpty(message ="is required")
+	@Pattern(regexp="^[a-zA-Z]{3,10}",message="Write a correct First Name. Use only chars. Not more than 10.")
 	private String firstName;
 	@Column(name="last_name")
-	//@NotEmpty(message ="is required")
-	@NotEmpty
-	//@Pattern(regexp="^[a-zA-Z]{5}",message="only chars")
+	@NotEmpty(message ="is required")
+	//@NotEmpty
+	@Pattern(regexp="^[a-zA-Z]{2,10}",message="Write a correct First Name. Use only chars. Not more than 10.")
 	private String lastName;
 	@Column(name="email")
 	@NotEmpty(message ="is required")
