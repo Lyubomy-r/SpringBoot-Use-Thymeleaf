@@ -6,9 +6,12 @@ import java.util.List;
 import SpringBootUseThymeleaf.service.EmployeeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import SpringBootUseThymeleaf.entity.Employee;
+
+import javax.validation.Valid;
 
 
 @Controller
@@ -56,9 +59,15 @@ public class EmployeeController {
 	}
 
 	@PostMapping("/save")
-	public String saveEmployee(@ModelAttribute("addEmployee")Employee theEmployee ){
+	public String saveEmployee(@Valid @ModelAttribute("addEmployee")Employee theEmployee, BindingResult theBindingResult){
 
-		employeeService.save(theEmployee);
+		if(theBindingResult.hasErrors()){
+			return "employee-form";
+		}else{
+			employeeService.save(theEmployee);
+		}
+
+
 
 		return "redirect:/employees/list";
 

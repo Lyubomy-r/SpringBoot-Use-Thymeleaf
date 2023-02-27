@@ -3,6 +3,7 @@ package SpringBootUseThymeleaf.entity;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name="employee")
@@ -12,10 +13,18 @@ public class Employee {
 	@Column(name="id")
 	private int id;
 	@Column(name="first_name")
+	//@NotEmpty(message ="is required")
+	@NotEmpty
+	//@Pattern(regexp="^[a-zA-Z]{5}",message="only chars")
 	private String firstName;
 	@Column(name="last_name")
+	//@NotEmpty(message ="is required")
+	@NotEmpty
+	//@Pattern(regexp="^[a-zA-Z]{5}",message="only chars")
 	private String lastName;
 	@Column(name="email")
+	@NotEmpty(message ="is required")
+	@Email(message = "Please enter a valid email Id", regexp="^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\\.[a-zA-Z.]{2,5}")
 	private String email;
 	
 	public Employee() {
