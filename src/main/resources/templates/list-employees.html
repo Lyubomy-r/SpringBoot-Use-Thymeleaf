@@ -9,7 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+		  integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<link rel="stylesheet"
+		  th:href="@{/css/demo.css}" />
 
 	<title>Employee Directory</title>
 </head>
@@ -20,13 +24,25 @@
 
 	<h3>Employee Directory</h3>
 	<hr>
-	<div sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')">
-	<!-- Add a button -->
-	<a th:href="@{/employees/showAddPage}"
+	<div id="container">
+		<div sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')">
+
+		<!-- Add a button -->
+		<a th:href="@{/employees/showAddPage}"
 	   class="btn btn-primary btn-sm mb-3">
 		Add Employee
-	</a>
+		</a>
+		</div>
+		<!-- Add a logout button -->
+		<form th:action="@{/logout}" method="POST">
+			<input type="submit" value="Logout"
+				   class="btn btn-primary btn-sm mb-3"/>
+		</form>
+
+
+		</a>
 	</div>
+
 
 	<table class="table table-bordered table-striped">
 		<thead class="thead-dark">
