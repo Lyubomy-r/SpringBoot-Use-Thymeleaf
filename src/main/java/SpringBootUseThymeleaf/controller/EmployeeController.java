@@ -2,6 +2,7 @@ package SpringBootUseThymeleaf.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import SpringBootUseThymeleaf.service.EmployeeService;
 import org.springframework.stereotype.Controller;
@@ -91,7 +92,20 @@ public class EmployeeController {
 
 	}
 
+	@RequestMapping("/search")
+	public String searchName(@RequestParam("searchName") String searchName, Model theModel ){
 
+			if(searchName==null || searchName.length()==0){
+				List<Employee> theEmployee = employeeService.findAll();
+				theModel.addAttribute("employees", theEmployee);
+			}else {
+				List<Employee> employeeOptional = employeeService.findByFirstName(searchName);
+				theModel.addAttribute("employees",employeeOptional);
+				theModel.addAttribute("searchName",searchName);
+		}
+
+		return "list-employees";
+	}
 	
 	
 }

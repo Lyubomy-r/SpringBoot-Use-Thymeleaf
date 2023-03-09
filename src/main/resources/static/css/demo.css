@@ -12,4 +12,27 @@
 	display:flex;
 	justify-content:space-between;
 }
+.panel-info-d {
+	border-color: #dee2e6;
+}
+.panel-heading-d {
+	color: #eee;
+	background-color: #17a2b8;
+	border-color: #17a2b8;
+
+	padding: 10px 15px;
+	border-bottom: 1px solid transparent;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+
+}
+#container-search {
+/*	width: 100%;*/
+	margin:auto;
+	display:flex;
+/*	justify-content:space-between;*/
+}
+#container-button {
+	margin-left: 10px;
+}
 

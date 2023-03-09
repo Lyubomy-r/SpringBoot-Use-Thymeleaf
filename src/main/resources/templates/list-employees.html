@@ -33,6 +33,22 @@
 		Add Employee
 		</a>
 		</div>
+		<div id="container-search">
+			<form   th:action="@{/employees/search}" method="get">
+
+				<input type="text" name="searchName" th:value="${searchName}"
+				  	 placeholder="Find by First Name or Last Name" size="30" th:selected="${searchName}" >
+				<button type="submit" class="btn btn-info" >Search</button>
+
+				</input>
+
+			</form>
+			<div id="container-button">
+			<form   th:action="@{/employees/list}" method="get">
+				<button type="submit" class="btn btn-info" >Reset</button>
+			</form>
+			</div>
+		</div>
 		<!-- Add a logout button -->
 		<form th:action="@{/logout}" method="POST">
 			<input type="submit" value="Logout"
